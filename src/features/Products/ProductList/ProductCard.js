@@ -44,7 +44,7 @@ export function ProductCard(props) {
             component="div"
             sx={styles.cardSubtitle}
           >
-            {price} {t("currency")}
+            {price == "" ? "-" : price} {t("currency")}
           </Typography>
         </CardContent>
       </Card>
