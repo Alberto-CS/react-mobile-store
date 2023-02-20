@@ -2,6 +2,7 @@ import React from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import { useGetAllProductsQuery } from "../productsApi";
 import { ProductCard } from "./ProductCard";
+import { SearchBar } from "./SearchBar";
 
 export function ProductList() {
   const { data } = useGetAllProductsQuery();
@@ -9,7 +10,7 @@ export function ProductList() {
   return (
     <Grid container justifyContent="center">
       <Grid xs={12}>
-        
+        <SearchBar />
       </Grid>
       {data.map((mobile) => {
         return (
