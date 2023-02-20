@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 import NotFound from "./app/404";
 import { CircularProgress, Typography } from "@mui/material";
+import { useGetAllProductsQuery } from "./features/Products/productsApi";
+import { ProductList } from "./features/Products/ProductList/ProductList";
 
 const styles = {
   center: {
@@ -13,15 +15,13 @@ const styles = {
     top: { xs: "32%", md: "22%", lg: "32%" },
     left: { xs: "40%", md: "40%", lg: "45%" },
     transform: "translate(-50%, -50%)",
-    color: "white",
+    color: "black",
   },
 };
 
 function App() {
   const { t } = useTranslation();
-  // const {error, isLoading} =
-  const error = false;
-  const isLoading = false;
+  const { error, isLoading } = useGetAllProductsQuery();
 
   return (
     <BrowserRouter>
@@ -48,7 +48,7 @@ function App() {
               element={<CircularProgress sx={styles.center} size={150} />}
             />
           ) : (
-            <Route exact path="/" element={<></>} />
+            <Route exact path="/" element={<ProductList />} />
           )}
           <Route exact path="/product/:id/*" element={<NotFound />} />
           <Route path="/product/:id" element={<></>} />

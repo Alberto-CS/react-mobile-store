@@ -12,16 +12,20 @@ i18n
     resources: {
       en: {
         translation: {
-            mainTitle: "Naaptilus Mobile Store",
-            pagenotfound: "Page not found",
-            goback: "Go back"
+          mainTitle: "Naaptilus Mobile Store",
+          pagenotfound: "Page not found",
+          goback: "Go back",
+          error: "Oh no, there was an error",
+          currency: "$",
         },
       },
       es: {
         translation: {
-            mainTitle: "Naaptilus Tienda de móviles",
-            pagenotfound: "Página no encontrada",
-            goback: "Volver atrás"
+          mainTitle: "Naaptilus Tienda de móviles",
+          pagenotfound: "Página no encontrada",
+          goback: "Volver atrás",
+          error: "Oh no, debe haber algún error",
+          currency: "€",
         },
       },
     },
