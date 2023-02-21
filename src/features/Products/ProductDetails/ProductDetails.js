@@ -1,11 +1,12 @@
 import React from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import {
   Button,
   Container,
   Card,
   CardContent,
   Typography,
+  CardHeader,
 } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { useTranslation } from "react-i18next";
@@ -19,7 +20,7 @@ export function ProductDetails() {
   const { data } = useGetProductDetailsByIdQuery(id);
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  console.log(data)
+  const nav = useNavigate();
 
   return (
     <Container>
@@ -41,6 +42,8 @@ export function ProductDetails() {
         >
           <Grid xs={12} sm={6} mt={2} mb={2}>
             <Card sx={{ minWidth: "30vw" }}>
+              <CardHeader>{t("description")}</CardHeader>
+
               <CardContent>
                 <Grid xs>
                   <Typography variant="h5" display="inline">
@@ -113,28 +116,33 @@ export function ProductDetails() {
                   alignItems="center"
                   xs
                 >
-                  <Grid xs={4}>
+                  <Grid xs>
                     <Typography variant="h5">{t("camera")}:</Typography>
                   </Grid>
-                  <Grid xs={8}>
+                  <Grid xs>
                     <Grid xs>
                       <Typography variant="body1">
-                        {data?.primaryCamera}
+                        {data?.primaryCamera.join(", ")}
                       </Typography>
                     </Grid>
                     <Grid xs>
                       <Typography variant="body1">
-                        {data?.secondaryCamera}
+                        {data?.secondaryCmera.join(", ")}
                       </Typography>
                     </Grid>
                   </Grid>
-                </Grid>
-                <Grid xs>
-                  <Typography variant="h5">{t("dimensions")}:</Typography>
                 </Grid>
                 <Grid xs>
                   <Typography variant="h5" display="inline">
-                    {t("weight")}:
+                    {t("dimensions")}:{" "}
+                  </Typography>
+                  <Typography variant="body1" display="inline">
+                    {data?.dimentions}
+                  </Typography>
+                </Grid>
+                <Grid xs>
+                  <Typography variant="h5" display="inline">
+                    {t("weight")}:{" "}
                   </Typography>
                   <Typography variant="body1" display="inline">
                     {data?.weight}
@@ -145,6 +153,7 @@ export function ProductDetails() {
           </Grid>
           <Grid xs={12} sm={6} mt={2} mb={2}>
             <Card sx={{ minWidth: "30vw" }}>
+              <CardHeader>{t("actions")}</CardHeader>
               <CardContent>
                 <Grid>Almacenamiento</Grid>
                 <Grid>Colores</Grid>
@@ -154,13 +163,16 @@ export function ProductDetails() {
                       dispatch(increment());
                     }}
                   >
-                    Añadir a la cesta
+                    {t("addToCart")}
                   </Button>
                 </Grid>
               </CardContent>
             </Card>
           </Grid>
         </Grid>
+      </Grid>
+      <Grid xs={12} mt={2}>
+        <Button sx={{minWidth: '30vw'}} variant="contained" size="large" onClick={() => nav("/")}>{t("goback")}</Button>
       </Grid>
     </Container>
   );

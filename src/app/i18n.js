@@ -28,7 +28,9 @@ i18n
           camera: "Camera",
           dimensions: "Dimensions",
           weight: "Weight",
-
+          addToCart: "Add to Cart",
+          actions: "Actions",
+          description: "Description",
         },
       },
       es: {
@@ -49,6 +51,9 @@ i18n
           camera: "Cámara",
           dimensions: "Dimensiones",
           weight: "Peso",
+          addToCart: "Añadir a la cesta",
+          actions: "Acciones",
+          description: "Descripción",
         },
       },
     },
