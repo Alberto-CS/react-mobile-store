@@ -24,7 +24,7 @@ export default function DescriptionList() {
           <ListItemText
             primary={t("brand")}
             primaryTypographyProps={{
-              fontSize: 20,
+              fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
             }}
@@ -35,7 +35,7 @@ export default function DescriptionList() {
           <ListItemText
             primary={t("model")}
             primaryTypographyProps={{
-              fontSize: 20,
+              fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
             }}
@@ -46,7 +46,7 @@ export default function DescriptionList() {
           <ListItemText
             primary={t("price")}
             primaryTypographyProps={{
-              fontSize: 20,
+              fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
             }}
@@ -63,7 +63,7 @@ export default function DescriptionList() {
           <ListItemText
             primary={t("cpu")}
             primaryTypographyProps={{
-              fontSize: 20,
+              fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
             }}
@@ -74,7 +74,7 @@ export default function DescriptionList() {
           <ListItemText
             primary={t("ram")}
             primaryTypographyProps={{
-              fontSize: 20,
+              fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
             }}
@@ -85,7 +85,7 @@ export default function DescriptionList() {
           <ListItemText
             primary={t("operativeSystem")}
             primaryTypographyProps={{
-              fontSize: 20,
+              fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
             }}
@@ -96,7 +96,7 @@ export default function DescriptionList() {
           <ListItemText
             primary={t("screenResolution")}
             primaryTypographyProps={{
-              fontSize: 20,
+              fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
             }}
@@ -107,7 +107,7 @@ export default function DescriptionList() {
           <ListItemText
             primary={t("battery")}
             primaryTypographyProps={{
-              fontSize: 20,
+              fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
             }}
@@ -118,7 +118,7 @@ export default function DescriptionList() {
           <ListItemText
             primary={t("camera")}
             primaryTypographyProps={{
-              fontSize: 20,
+              fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
             }}
@@ -148,7 +148,7 @@ export default function DescriptionList() {
           <ListItemText
             primary={t("dimensions")}
             primaryTypographyProps={{
-              fontSize: 20,
+              fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
             }}
@@ -159,7 +159,7 @@ export default function DescriptionList() {
           <ListItemText
             primary={t("weight")}
             primaryTypographyProps={{
-              fontSize: 20,
+              fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
             }}
