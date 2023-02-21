@@ -27,7 +27,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "cypress open",
+    "lint": "eslint --fix --ext .js,.jsx .",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -47,5 +48,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cypress": "^12.6.0",
+    "lint": "^0.8.19"
   }
 }

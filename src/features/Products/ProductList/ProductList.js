@@ -39,6 +39,7 @@ export function ProductList() {
               mt={2}
               mb={2}
               key={mobile.id}
+              aria-label= "product-card"
             >
               <ProductCard
                 id={mobile.id}
@@ -46,6 +47,7 @@ export function ProductList() {
                 img={mobile.imgUrl}
                 brand={mobile.brand}
                 price={mobile.price}
+                
               />
             </Grid>
           );
