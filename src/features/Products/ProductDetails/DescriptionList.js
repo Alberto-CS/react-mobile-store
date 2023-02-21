@@ -27,6 +27,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
+              marginRight: '10px'
             }}
           />
           <ListItemText primary={data?.brand} />
@@ -38,6 +39,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
+              marginRight: '10px'
             }}
           />
           <ListItemText primary={data?.model} />
@@ -49,6 +51,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
+              marginRight: '10px'
             }}
           />
           <ListItemText
@@ -66,6 +69,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
+              marginRight: '10px'
             }}
           />
           <ListItemText primary={data?.cpu} />
@@ -77,6 +81,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
+              marginRight: "30px",
             }}
           />
           <ListItemText primary={data?.ram} />
@@ -88,6 +93,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
+              marginRight: "5px",
             }}
           />
           <ListItemText primary={data?.os} />
@@ -99,6 +105,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
+              marginRight: "5px",
             }}
           />
           <ListItemText primary={data?.displayResolution} />
@@ -110,39 +117,32 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
+              marginRight: "5px",
             }}
           />
           <ListItemText primary={data?.battery} />
         </ListItem>
         <ListItem disablePadding>
           <ListItemText
-            primary={t("camera")}
-            primaryTypographyProps={{
-              fontSize: 14,
-              fontWeight: "medium",
-              letterSpacing: 0,
-            }}
+            primary={t("firstCamera")}
+            secondary={
+              data?.primaryCamera === ""
+                ? "No"
+                : typeof data?.primaryCamera === "string"
+                ? data?.primaryCamera
+                : data?.primaryCamera.join(", ")
+            }
           />
-          {data?.secondaryCmera !== "" ? (
-            <ListItemText
-              primary={t("firstCamera")}
-              secondary={
-                typeof data?.primaryCamera === "string"
-                  ? data?.primaryCamera
-                  : data?.primaryCamera.join(", ")
-              }
-            />
-          ) : null}
-          {data?.secondaryCmera !== "" ? (
-            <ListItemText
-              primary={t("secondCamera")}
-              secondary={
-                typeof data?.secondaryCmera === "string"
-                  ? data?.secondaryCmera
-                  : data?.secondaryCmera.join(", ")
-              }
-            />
-          ) : null}
+          <ListItemText
+            primary={t("secondCamera")}
+            secondary={
+              data?.secondaryCmera === ""
+                ? "No"
+                : typeof data?.secondaryCmera === "string"
+                ? data?.secondaryCmera
+                : data?.secondaryCmera.join(", ")
+            }
+          />
         </ListItem>
         <ListItem disablePadding>
           <ListItemText
@@ -151,6 +151,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
+              marginRight: "5px",
             }}
           />
           <ListItemText primary={data?.dimentions} />
@@ -162,6 +163,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
+              marginRight: "5px",
             }}
           />
           <ListItemText primary={data?.weight + " gr"} />
