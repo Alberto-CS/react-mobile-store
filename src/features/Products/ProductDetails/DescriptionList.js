@@ -93,7 +93,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
-              marginRight: "5px",
+              marginRight: '30px',
             }}
           />
           <ListItemText primary={data?.os} />
@@ -105,7 +105,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
-              marginRight: "5px",
+              marginRight: '30px',
             }}
           />
           <ListItemText primary={data?.displayResolution} />
@@ -117,7 +117,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
-              marginRight: "5px",
+              marginRight: '30px',
             }}
           />
           <ListItemText primary={data?.battery} />
@@ -151,7 +151,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
-              marginRight: "5px",
+              marginRight: '30px',
             }}
           />
           <ListItemText primary={data?.dimentions} />
@@ -163,7 +163,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
-              marginRight: "5px",
+              marginRight: '30px',
             }}
           />
           <ListItemText primary={data?.weight + " gr"} />
