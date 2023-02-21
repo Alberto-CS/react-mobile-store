@@ -7,6 +7,7 @@ import NotFound from "./app/404";
 import { CircularProgress, Typography } from "@mui/material";
 import { useGetAllProductsQuery } from "./features/Products/productsApi";
 import { ProductList } from "./features/Products/ProductList/ProductList";
+import { ProductDetails } from "./features/Products/ProductDetails/ProductDetails";
 
 const styles = {
   center: {
@@ -51,7 +52,7 @@ function App() {
             <Route exact path="/" element={<ProductList />} />
           )}
           <Route exact path="/product/:id/*" element={<NotFound />} />
-          <Route path="/product/:id" element={<></>} />
+          <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

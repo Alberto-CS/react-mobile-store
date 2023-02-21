@@ -7,6 +7,7 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import TranslateIcon from "@mui/icons-material/Translate";
+import { ShoppingCart } from "../features/ShoppingCart/ShoppingCart";
 
 const styles = {
   navbar: {
@@ -31,9 +32,9 @@ export default function NavBar() {
   };
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar sx={styles.navbar} position="static">
+      <AppBar sx={styles.navbar} position="sticky">
         <Toolbar>
-          {location?.pathname == "/" ? (
+          {location?.pathname === "/" ? (
             <Typography
               variant="h5"
               component={Link}
@@ -61,6 +62,7 @@ export default function NavBar() {
           )}
 
           <TranslateIcon onClick={changeLanguage} />
+          <ShoppingCart />
         </Toolbar>
       </AppBar>
     </Box>

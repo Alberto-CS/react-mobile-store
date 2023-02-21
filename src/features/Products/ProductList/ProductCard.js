@@ -33,18 +33,18 @@ export function ProductCard(props) {
             {model}
           </Typography>
           <Typography
-            variant="subtitle1"
+            variant="body1"
             component="div"
             sx={styles.cardSubtitle}
           >
             {brand}
           </Typography>
           <Typography
-            variant="subtitle2"
+            variant="body2"
             component="div"
             sx={styles.cardSubtitle}
           >
-            {price == "" ? "-" : price} {t("currency")}
+            {price === "" ? "-" : price} {t("currency")}
           </Typography>
         </CardContent>
       </Card>

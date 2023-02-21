@@ -19,6 +19,7 @@ export function ProductDetails() {
   const { data } = useGetProductDetailsByIdQuery(id);
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  console.log(data)
 
   return (
     <Container>
@@ -62,7 +63,7 @@ export function ProductDetails() {
                     {t("price")}:{" "}
                   </Typography>
                   <Typography variant="body1" display="inline">
-                    {data?.price == "" ? "-" : data?.price} {t("currency")}{" "}
+                    {data?.price === "" ? "-" : data?.price} {t("currency")}{" "}
                   </Typography>
                 </Grid>
                 <Grid xs>

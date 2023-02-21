@@ -18,6 +18,6 @@ const shoppingCartSlice = createSlice({
   },
 });
 
-export const { increment, decrement, incrementByAmount, getCount } =
+export const { increment, decrement, incrementByAmount } =
   shoppingCartSlice.actions;
 export default shoppingCartSlice.reducer;
