@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import { useGetAllProductsQuery } from "../productsApi";
 import { ProductCard } from "./ProductCard";
-import { SearchBar } from "./SearchBar";
+import { SearchBar } from "../../SearchBar/SearchBar";
 
 export function ProductList() {
   const { data } = useGetAllProductsQuery();
