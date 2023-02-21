@@ -6,7 +6,6 @@ import {
   Card,
   CardContent,
   Typography,
-  CardHeader,
 } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { useTranslation } from "react-i18next";
@@ -14,6 +13,8 @@ import { useGetProductDetailsByIdQuery } from "../productsApi";
 import AspectRatio from "@mui/joy/AspectRatio";
 import { increment } from "../../ShoppingCart/ShoppingCartSlice";
 import { useDispatch } from "react-redux";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import DescriptionList from "./DescriptionList";
 
 export function ProductDetails() {
   const { id } = useParams();
@@ -42,126 +43,29 @@ export function ProductDetails() {
         >
           <Grid xs={12} sm={6} mt={2} mb={2}>
             <Card sx={{ minWidth: "30vw" }}>
-              <CardHeader>{t("description")}</CardHeader>
-
+              <Typography variant="h4" sx={{ textAlign: "left" }} ml={2}>
+                {t("description")}
+              </Typography>
               <CardContent>
-                <Grid xs>
-                  <Typography variant="h5" display="inline">
-                    {t("brand")}:{" "}
-                  </Typography>
-                  <Typography variant="body1" display="inline">
-                    {data?.brand}
-                  </Typography>
-                </Grid>
-                <Grid xs>
-                  <Typography variant="h5" display="inline">
-                    {t("model")}:{" "}
-                  </Typography>
-                  <Typography variant="body1" display="inline">
-                    {data?.model}
-                  </Typography>
-                </Grid>
-                <Grid xs>
-                  <Typography variant="h5" display="inline">
-                    {t("price")}:{" "}
-                  </Typography>
-                  <Typography variant="body1" display="inline">
-                    {data?.price === "" ? "-" : data?.price} {t("currency")}{" "}
-                  </Typography>
-                </Grid>
-                <Grid xs>
-                  <Typography variant="h5" display="inline">
-                    {t("cpu")}:{" "}
-                  </Typography>
-                  <Typography variant="body1" display="inline">
-                    {data?.cpu}
-                  </Typography>
-                </Grid>
-                <Grid xs>
-                  <Typography variant="h5" display="inline">
-                    {t("ram")}:{" "}
-                  </Typography>
-                  <Typography variant="body1" display="inline">
-                    {data?.ram}
-                  </Typography>
-                </Grid>
-                <Grid xs>
-                  <Typography variant="h5" display="inline">
-                    {t("operativeSystem")}:
-                  </Typography>
-                  <Typography variant="body1" display="inline">
-                    {data?.os}{" "}
-                  </Typography>
-                </Grid>
-                <Grid xs>
-                  <Typography variant="h5" display="inline">
-                    {t("screenResolution")}:{" "}
-                  </Typography>
-                  <Typography variant="body1" display="inline">
-                    {data?.displayResolution}
-                  </Typography>
-                </Grid>
-                <Grid xs>
-                  <Typography variant="h5" display="inline">
-                    {t("battery")}:{" "}
-                  </Typography>
-                  <Typography variant="body1" display="inline">
-                    {data?.battery}
-                  </Typography>
-                </Grid>
-                <Grid
-                  container
-                  direction="row"
-                  justifyContent="center"
-                  alignItems="center"
-                  xs
-                >
-                  <Grid xs>
-                    <Typography variant="h5">{t("camera")}:</Typography>
-                  </Grid>
-                  <Grid xs>
-                    <Grid xs>
-                      <Typography variant="body1">
-                        {data?.primaryCamera.join(", ")}
-                      </Typography>
-                    </Grid>
-                    <Grid xs>
-                      <Typography variant="body1">
-                        {data?.secondaryCmera.join(", ")}
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                </Grid>
-                <Grid xs>
-                  <Typography variant="h5" display="inline">
-                    {t("dimensions")}:{" "}
-                  </Typography>
-                  <Typography variant="body1" display="inline">
-                    {data?.dimentions}
-                  </Typography>
-                </Grid>
-                <Grid xs>
-                  <Typography variant="h5" display="inline">
-                    {t("weight")}:{" "}
-                  </Typography>
-                  <Typography variant="body1" display="inline">
-                    {data?.weight}
-                  </Typography>
-                </Grid>
+                <DescriptionList />
               </CardContent>
             </Card>
           </Grid>
           <Grid xs={12} sm={6} mt={2} mb={2}>
             <Card sx={{ minWidth: "30vw" }}>
-              <CardHeader>{t("actions")}</CardHeader>
+              <Typography variant="h4" sx={{ textAlign: "left" }} ml={2}>
+                {t("actions")}
+              </Typography>
               <CardContent>
                 <Grid>Almacenamiento</Grid>
                 <Grid>Colores</Grid>
-                <Grid>
+                <Grid mt={1}>
                   <Button
+                    variant="outlined"
                     onClick={() => {
                       dispatch(increment());
                     }}
+                    startIcon={<ShoppingCartIcon />}
                   >
                     {t("addToCart")}
                   </Button>
@@ -172,7 +76,14 @@ export function ProductDetails() {
         </Grid>
       </Grid>
       <Grid xs={12} mt={2}>
-        <Button sx={{minWidth: '30vw'}} variant="contained" size="large" onClick={() => nav("/")}>{t("goback")}</Button>
+        <Button
+          sx={{ minWidth: "30vw" }}
+          variant="contained"
+          size="large"
+          onClick={() => nav(-1)}
+        >
+          {t("goback")}
+        </Button>
       </Grid>
     </Container>
   );

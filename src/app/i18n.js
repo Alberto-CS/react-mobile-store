@@ -31,6 +31,8 @@ i18n
           addToCart: "Add to Cart",
           actions: "Actions",
           description: "Description",
+          firstCamera: "First Camera",
+          secondCamera: "Second Camera",
         },
       },
       es: {
@@ -54,6 +56,8 @@ i18n
           addToCart: "Añadir a la cesta",
           actions: "Acciones",
           description: "Descripción",
+          firstCamera: "Cámara principal",
+          secondCamera: "Cámara secundaria",
         },
       },
     },
