@@ -18,7 +18,7 @@ Se abrirá la aplicación en el navegador predeterminado.
 
 Para mayor comodidad, en el caso de que se quiera probar sin instalar se ha subido a Vercel. Se puede acceder a través del siguiente enlace.
 
-[react-mobile-store - Vercel](https://github.com/Alberto-CS/react-mobile-store)
+[react-mobile-store - Vercel](https://react-mobile-store.vercel.app/)
 
 
 ## Estructura y organización de la app
