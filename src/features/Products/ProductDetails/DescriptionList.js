@@ -27,7 +27,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
-              marginRight: '10px'
+              marginRight: '30px'
             }}
           />
           <ListItemText primary={data?.brand} />
@@ -39,7 +39,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
-              marginRight: '10px'
+              marginRight: '30px'
             }}
           />
           <ListItemText primary={data?.model} />
@@ -51,7 +51,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
-              marginRight: '10px'
+              marginRight: '30px'
             }}
           />
           <ListItemText
@@ -69,7 +69,7 @@ export default function DescriptionList() {
               fontSize: 14,
               fontWeight: "medium",
               letterSpacing: 0,
-              marginRight: '10px'
+              marginRight: '30px'
             }}
           />
           <ListItemText primary={data?.cpu} />
