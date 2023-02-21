@@ -72,3 +72,10 @@ Se ha utilizado el ecosistema de Material UI para desarrollar las cuestiones de 
 
 ### i18n
 i18n permite internacionalizar una app. Se ha utilizado i18n para cambiar entre los idiomas de inglés y español de la aplicación.
+
+## Pruebas E2E
+Para pruebas End-to-End se ha utilizado Cypress. Dada la sencillez de la aplicación, se han realizado tres pequeñas pruebas: carga de datos desde la API, búsqueda de un producto en la barra de búsqueda y acceder a los detalles de un producto.
+
+Para ejecutar la prueba se abrirá la aplicación cypress y se ejecutará la prueba definida en spec.cy.js
+
+> npx run test
