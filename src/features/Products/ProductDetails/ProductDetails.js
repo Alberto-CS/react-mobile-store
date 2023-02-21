@@ -27,7 +27,7 @@ export function ProductDetails() {
   return (
     <Container>
       <Grid container justifyContent="center">
-        <Grid xs={12} sm={6} mt={1} mb={1}>
+        <Grid xs={12} sm={12} md={6} mt={1} mb={1}>
           <AspectRatio minHeight={120} maxHeight={"80vh"} ratio="4/5">
             <img src={data?.imgUrl} srcSet={data?.imgUrl} alt={data?.model} />
           </AspectRatio>
@@ -40,11 +40,10 @@ export function ProductDetails() {
           justifyContent="center"
           alignItems="center"
           mt={1}
-          mb={1}
         >
-          <Grid xs={12} sm={6} mt={1} mb={1}>
+          <Grid xs={12} sm={12} md={6}>
             <Card sx={{ minWidth: "30vw" }}>
-              <Typography variant="h4" sx={{ textAlign: "left" }} ml={2}>
+              <Typography variant="h6" sx={{ textAlign: "left" }} ml={2}>
                 {t("description")}
               </Typography>
               <CardContent>
@@ -59,18 +58,11 @@ export function ProductDetails() {
               </Typography>
               <CardContent>
                 <Grid container mb={1}>
-                  <Grid xs>
-                    <Typography variant="subtitle2" sx={{ textAlign: "left" }}>
-                      {t("color")}
-                    </Typography>
-                    <ActionSelector data={data?.colors} />
-                  </Grid>
-                  <Grid xs>
-                    <Typography variant="subtitle2" sx={{ textAlign: "left" }} ml={2}>
-                      {t("internalMemory")}
-                    </Typography>
-                    <ActionSelector data={data?.internalMemory}/>
-                  </Grid>
+                  <ActionSelector data={data?.colors} title={t("color")} />
+                  <ActionSelector
+                    data={data?.internalMemory}
+                    title={t("internalMemory")}
+                  />
                 </Grid>
 
                 <Grid mt={2}>

@@ -22,6 +22,8 @@ export function ProductList() {
             filter === ""
           ) {
             return mobile;
+          } else {
+            return null;
           }
         })
         .map((mobile) => {

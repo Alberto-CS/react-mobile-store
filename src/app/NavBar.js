@@ -12,7 +12,8 @@ import { ShoppingCart } from "../features/ShoppingCart/ShoppingCart";
 const styles = {
   navbar: {
     backgroundColor: "primary",
-    height: "10vh",
+    height: "5vh",
+    minHeight: "60px"
   },
   navbarItem: {
     textDecoration: "none",
