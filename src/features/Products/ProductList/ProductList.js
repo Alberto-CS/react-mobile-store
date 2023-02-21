@@ -3,9 +3,12 @@ import Grid from "@mui/material/Unstable_Grid2";
 import { useGetAllProductsQuery } from "../productsApi";
 import { ProductCard } from "./ProductCard";
 import { SearchBar } from "../../SearchBar/SearchBar";
+import { useSelector } from "react-redux";
+
 
 export function ProductList() {
   const { data } = useGetAllProductsQuery();
+  const filter = useSelector((state) => state.searchBar.searchFilter);
 
   return (
     <Grid container justifyContent="center">

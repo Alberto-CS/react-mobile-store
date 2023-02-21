@@ -35,6 +35,7 @@ i18n
           secondCamera: "Secondary Camera",
           color: "Color",
           internalMemory: "Internal Memory",
+          search: "Search..."
         },
       },
       es: {
@@ -62,6 +63,7 @@ i18n
           secondCamera: "Cámara secundaria",
           color: "Color",
           internalMemory: "Memoria interna",
+          search: "Buscar..."
         },
       },
     },
