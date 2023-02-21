@@ -15,6 +15,7 @@ import { increment } from "../../ShoppingCart/ShoppingCartSlice";
 import { useDispatch } from "react-redux";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import DescriptionList from "./DescriptionList";
+import ActionSelector from "./ActionSelector";
 
 export function ProductDetails() {
   const { id } = useParams();
@@ -26,7 +27,7 @@ export function ProductDetails() {
   return (
     <Container>
       <Grid container justifyContent="center">
-        <Grid xs={12} sm={6} mt={2} mb={2}>
+        <Grid xs={12} sm={6} mt={1} mb={1}>
           <AspectRatio minHeight={120} maxHeight={"80vh"} ratio="4/5">
             <img src={data?.imgUrl} srcSet={data?.imgUrl} alt={data?.model} />
           </AspectRatio>
@@ -38,10 +39,10 @@ export function ProductDetails() {
           direction="column"
           justifyContent="center"
           alignItems="center"
-          mt={2}
-          mb={2}
+          mt={1}
+          mb={1}
         >
-          <Grid xs={12} sm={6} mt={2} mb={2}>
+          <Grid xs={12} sm={6} mt={1} mb={1}>
             <Card sx={{ minWidth: "30vw" }}>
               <Typography variant="h4" sx={{ textAlign: "left" }} ml={2}>
                 {t("description")}
@@ -51,15 +52,28 @@ export function ProductDetails() {
               </CardContent>
             </Card>
           </Grid>
-          <Grid xs={12} sm={6} mt={2} mb={2}>
+          <Grid xs={12} sm={6} mt={1} mb={1}>
             <Card sx={{ minWidth: "30vw" }}>
-              <Typography variant="h4" sx={{ textAlign: "left" }} ml={2}>
+              <Typography variant="h6" sx={{ textAlign: "left" }} ml={2}>
                 {t("actions")}
               </Typography>
               <CardContent>
-                <Grid>Almacenamiento</Grid>
-                <Grid>Colores</Grid>
-                <Grid mt={1}>
+                <Grid container mb={1}>
+                  <Grid xs>
+                    <Typography variant="subtitle2" sx={{ textAlign: "left" }}>
+                      {t("color")}
+                    </Typography>
+                    <ActionSelector data={data?.colors} />
+                  </Grid>
+                  <Grid xs>
+                    <Typography variant="subtitle2" sx={{ textAlign: "left" }} ml={2}>
+                      {t("internalMemory")}
+                    </Typography>
+                    <ActionSelector data={data?.internalMemory}/>
+                  </Grid>
+                </Grid>
+
+                <Grid mt={2}>
                   <Button
                     variant="outlined"
                     onClick={() => {
@@ -75,7 +89,7 @@ export function ProductDetails() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid xs={12} mt={2}>
+      <Grid xs={12} mt={1} mb={1}>
         <Button
           sx={{ minWidth: "30vw" }}
           variant="contained"

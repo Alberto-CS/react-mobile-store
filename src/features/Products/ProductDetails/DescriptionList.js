@@ -123,14 +123,26 @@ export default function DescriptionList() {
               letterSpacing: 0,
             }}
           />
-          <ListItemText
-            primary={t("firstCamera")}
-            secondary={data?.primaryCamera.join(", ")}
-          />
-          <ListItemText
-            primary={t("secondCamera")}
-            secondary={data?.secondaryCmera.join(", ")}
-          />
+          {data?.secondaryCmera !== "" ? (
+            <ListItemText
+              primary={t("firstCamera")}
+              secondary={
+                typeof data?.primaryCamera === "string"
+                  ? data?.primaryCamera
+                  : data?.primaryCamera.join(", ")
+              }
+            />
+          ) : null}
+          {data?.secondaryCmera !== "" ? (
+            <ListItemText
+              primary={t("secondCamera")}
+              secondary={
+                typeof data?.secondaryCmera === "string"
+                  ? data?.secondaryCmera
+                  : data?.secondaryCmera.join(", ")
+              }
+            />
+          ) : null}
         </ListItem>
         <ListItem disablePadding>
           <ListItemText
