@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# React Mobile Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Acceso al código y despliegue a la aplicación
 
-In the project directory, you can run:
+La aplicación se encuentra disponible en Github, donde se puede consultar el código en el siguiente enlace:
 
-### `npm start`
+[react-mobile-store - Github](https://github.com/Alberto-CS/react-mobile-store)
+ 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Para arrancar la aplicación debemos clonar o descargar el repositorio y ejecutar los siguientes comandos
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> npm install
 
-### `npm test`
+> npm start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Se abrirá la aplicación en el navegador predeterminado. 
 
-### `npm run build`
+Para mayor comodidad, en el caso de que se quiera probar sin instalar se ha subido a Vercel. Se puede acceder a través del siguiente enlace.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[react-mobile-store - Vercel](https://github.com/Alberto-CS/react-mobile-store)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Estructura y organización de la app
+Se ha utilizado el comando create-react-app con la plantilla de redux para estructurar la aplicación. Se ha respetado la estructura generada añadiendo al directorio 'app' aquellos componentes generales que no forman parte de alguna característica en concreto tal como las traducciones o la página 404. 
 
-### `npm run eject`
+Aquellos componentes que involucran funcionalidades o características requisitos de la aplicación se encuentran en el directorio 'features'.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Descripción de la aplicación
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### App
+En este componente está desarrollado el routing de la aplicación y la gestión del estado de la API de la que se obtiene la primera carga de datos de la aplicación.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+##### Routing
+En el caso del routing se han diseñado las siguientes rutas:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **exact path='/'** Pantalla principal, listado de todos los móviles
+- **path='/product/:id/*'** Gestión de errores en el caso de que se introduzca una ruta errónea
+- **path='/product/:id'** Pantalla de detalles de un móvil en concreto
+- **path='*'** Gestión de errores en el caso de que ninguna de las rutas anteriores coincida, página 404.
 
-## Learn More
+##### Gestión de estado de la API
+Si la API está cargando, mostrará un spinner hasta que los datos estén cargados. En el caso de que haya algún error, se mostrará un texto de error en el idioma seleccionado en la aplicación.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Product Card
+Este es uno de los dos componentes básicos de la aplicación. Refleja la información mínima para identificar un móvil: imagen, marca, modelo y precio. En el caso de que se haga click en dicho componente, se accederá a la pantalla de detalles del personaje.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Product List
+Este componente muestra todo los móviles de la API con su información mínima, la barra de navegación y el buscador. La barra de navegación dispone del carrito de la aplicación. Tanto el carrito como el buscador disponen de un slice (shoppingCartSlice y searchBarSlice respectivamente) que facilitan el manejo de la lógica de los componentes y la limpieza y modularidad del código.
 
-### Code Splitting
+Debido a que no se ha proporcionado el endpoint para hacer post del carrito, que se ha pedido en varias ocasiones, se ha implementado el carrito de manera local y se mantiene el número de productos en la store.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Product Details
+Este es el segundo componente básico de la aplicación. Refleja mucha más información acerca de un móvil en concreto. Además dispone de diferentes selectores que permiten elegir entre diferentes características del producto.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### productsAPI
+Este servicio hace uso de rtk query y permite la búsqueda y el cacheo de datos de la aplicación. Se han planteado dos hooks para poder acceder a los distintos datos: uno para obtener todos los móviles y otro para acceder a los destalles de un móvil en concreto.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Librerías usadas
+Se ha procurado usar el menor número de librerías posibles sin comprometer la calidad del código y del resultado de la aplicación. Las librerías más importantes a comentar son las siguientes
 
-### Advanced Configuration
+### React Helmet
+React Helmet permite cambiar dinámicamente las cabeceras del fichero html generado para producción. Esto es especialmente útil cuando la aplicación se despliega en un entorno web, donde podemos fijar parámetros como el título, la descripción o el favicon de la web. En este caso concreto se ha utilizado para modificar el title de la app.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### RTK Query
+RTK Query permite simplificar el proceso de búsqueda y cacheo de datos. 
 
-### Deployment
+### MUI v5
+Se ha utilizado el ecosistema de Material UI para desarrollar las cuestiones de estilo de la aplicación. Internamente hace uso de las librerías de @emotion.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### i18n
+i18n permite internacionalizar una app. Se ha utilizado i18n para cambiar entre los idiomas de inglés y español de la aplicación.
