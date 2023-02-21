@@ -5,7 +5,6 @@ import { ProductCard } from "./ProductCard";
 import { SearchBar } from "../../SearchBar/SearchBar";
 import { useSelector } from "react-redux";
 
-
 export function ProductList() {
   const { data } = useGetAllProductsQuery();
   const filter = useSelector((state) => state.searchBar.searchFilter);
@@ -15,30 +14,40 @@ export function ProductList() {
       <Grid xs={12}>
         <SearchBar />
       </Grid>
-      {data.map((mobile) => {
-        return (
-          <Grid
-            xs={12}
-            md={4}
-            lg={3}
-            direction="column"
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            mt={2}
-            mb={2}
-            key={mobile.id}
-          >
-            <ProductCard
-              id={mobile.id}
-              model={mobile.model}
-              img={mobile.imgUrl}
-              brand={mobile.brand}
-              price={mobile.price}
-            />
-          </Grid>
-        );
-      })}
+      {data
+        .filter((mobile) => {
+          if (
+            mobile.brand.includes(filter) ||
+            mobile.model.includes(filter) ||
+            filter === ""
+          ) {
+            return mobile;
+          }
+        })
+        .map((mobile) => {
+          return (
+            <Grid
+              xs={12}
+              md={4}
+              lg={3}
+              direction="column"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              mt={2}
+              mb={2}
+              key={mobile.id}
+            >
+              <ProductCard
+                id={mobile.id}
+                model={mobile.model}
+                img={mobile.imgUrl}
+                brand={mobile.brand}
+                price={mobile.price}
+              />
+            </Grid>
+          );
+        })}
     </Grid>
   );
 }
